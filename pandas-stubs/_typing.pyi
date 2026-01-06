@@ -545,7 +545,7 @@ NumpyVoidDtypeArg: TypeAlias = type[np.void] | Literal["V", "void"]
 VoidDtypeArg: TypeAlias = NumpyVoidDtypeArg
 
 # DtypeArg specifies all allowable dtypes in a functions its dtype argument
-DtypeArg: TypeAlias = Dtype | Mapping[Hashable, Dtype]
+DtypeArg: TypeAlias = Dtype | Mapping[HashableT, Dtype]
 DtypeObj: TypeAlias = np.dtype[np.generic] | ExtensionDtype
 
 AstypeArg: TypeAlias = (
@@ -565,7 +565,7 @@ AstypeArg: TypeAlias = (
 )
 
 # converters
-ConvertersArg: TypeAlias = Mapping[Hashable, Callable[[Dtype], Dtype]]
+ConvertersArg: TypeAlias = Mapping[HashableT, Callable[[Dtype], Dtype]]
 
 # parse_dates
 ParseDatesArg: TypeAlias = (

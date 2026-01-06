@@ -32,6 +32,7 @@ from pandas._typing import (
     ExcelWriteEngine,
     ExcelWriterIfSheetExists,
     FilePath,
+    HashableT,
     IntStrT,
     ListLikeHashable,
     ReadBuffer,
@@ -81,7 +82,7 @@ def read_excel(
         | Sequence[Sequence[str] | Sequence[int]]
         | dict[str, Sequence[int] | list[str]]
     ) = ...,
-    date_format: dict[Hashable, str] | str | None = ...,
+    date_format: dict[HashableT, str] | str | None = ...,
     thousands: str | None = ...,
     decimal: str = ...,
     comment: str | None = ...,
@@ -124,7 +125,7 @@ def read_excel(
         | Sequence[Sequence[str] | Sequence[int]]
         | dict[str, Sequence[int] | list[str]]
     ) = ...,
-    date_format: dict[Hashable, str] | str | None = ...,
+    date_format: dict[HashableT, str] | str | None = ...,
     thousands: str | None = ...,
     decimal: str = ...,
     comment: str | None = ...,
@@ -168,7 +169,7 @@ def read_excel(  # type: ignore[overload-cannot-match]
         | Sequence[Sequence[str] | Sequence[int]]
         | dict[str, Sequence[int] | list[str]]
     ) = ...,
-    date_format: dict[Hashable, str] | str | None = ...,
+    date_format: dict[HashableT, str] | str | None = ...,
     thousands: str | None = ...,
     decimal: str = ...,
     comment: str | None = ...,
@@ -211,7 +212,7 @@ def read_excel(
         | Sequence[Sequence[str] | Sequence[int]]
         | dict[str, Sequence[int] | list[str]]
     ) = ...,
-    date_format: dict[Hashable, str] | str | None = ...,
+    date_format: dict[HashableT, str] | str | None = ...,
     thousands: str | None = ...,
     decimal: str = ...,
     comment: str | None = ...,
