@@ -627,6 +627,9 @@ def test_types_read_csv_num(tmp_path: Path) -> None:
         assert_type(pd.read_csv(path_str, dtype={"a": float, "b": int}), pd.DataFrame),
         pd.DataFrame,
     )
+    # Test dtype with variable (schema)
+    schema = {"a": float, "b": int}
+    check(assert_type(pd.read_csv(path_str, dtype=schema), pd.DataFrame), pd.DataFrame)
     check(
         assert_type(pd.read_csv(path_str, usecols=["col1"]), pd.DataFrame), pd.DataFrame
     )
@@ -759,6 +762,23 @@ def test_types_read_csv_date(tmp_path: Path) -> None:
     check(
         assert_type(
             pd.read_csv(path_str, parse_dates=["col1"], date_format={1: "%Y-%m-%d"}),
+            pd.DataFrame,
+        ),
+        pd.DataFrame,
+    )
+    # Test date_format with variable (format_schema)
+    format_schema_str = {"col1": "%Y-%m-%d"}
+    check(
+        assert_type(
+            pd.read_csv(path_str, parse_dates=["col1"], date_format=format_schema_str),
+            pd.DataFrame,
+        ),
+        pd.DataFrame,
+    )
+    format_schema_int = {1: "%Y-%m-%d"}
+    check(
+        assert_type(
+            pd.read_csv(path_str, parse_dates=["col1"], date_format=format_schema_int),
             pd.DataFrame,
         ),
         pd.DataFrame,
